@@ -14,6 +14,7 @@ public class SC_FPSController : MonoBehaviour
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
 
+    Camera firstPersonCamera;
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
@@ -24,6 +25,7 @@ public class SC_FPSController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        firstPersonCamera = GetComponentInChildren<Camera>();
 
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -33,8 +35,11 @@ public class SC_FPSController : MonoBehaviour
     void Update()
     {
         // We are grounded, so recalculate move direction based on axes
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right = transform.TransformDirection(Vector3.right);
+        //Vector3 forward = transform.TransformDirection(Vector3.forward);
+        //Vector3 right = transform.TransformDirection(Vector3.right);
+        Vector3 forward = firstPersonCamera.transform.forward;
+        Vector3 right = firstPersonCamera.transform.right;
+
         // Press Left Shift to run
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
         float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
@@ -45,10 +50,6 @@ public class SC_FPSController : MonoBehaviour
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
             moveDirection.y = jumpSpeed;
-        }
-        else
-        {
-            moveDirection.y = movementDirectionY;
         }
 
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
