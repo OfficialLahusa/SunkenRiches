@@ -11,7 +11,10 @@ public class Timer : MonoBehaviour
     TMP_Text text;
 
     // Set timer to 3 min
-    public float remainingSeconds = 3 * 60.0f;
+    public const float TIMER_LENGTH = 3 * 60.0f; 
+    public float remainingSeconds = TIMER_LENGTH;
+
+    private ViewModelInstanceNumberProperty _progress;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +37,11 @@ public class Timer : MonoBehaviour
         int seconds = Mathf.FloorToInt(Mathf.Repeat(remainingSeconds, 60f));
 
         text.SetText($"{minutes}:{seconds:D2}");
+
+        if (_progress != null)
+        {
+            _progress.Value = 100 * remainingSeconds / TIMER_LENGTH;
+        }
     }
 
     private void OnEnable()
@@ -51,36 +59,12 @@ public class Timer : MonoBehaviour
         if (timerWidget.Status == WidgetStatus.Loaded)
         {
             File file = timerWidget.File;
+            ViewModel viewModel = file.GetViewModelByName("O2 Model");
+            ViewModelInstance viewModelInstance = viewModel.CreateInstanceByName("Instance");
 
-            /*// Get reference by name
-            ViewModel viewModel = file.GetViewModelByName("My View Model");
+            timerWidget.StateMachine.BindViewModelInstance(viewModelInstance);
 
-            // Get reference by index
-            for (int i = 0; i < file.ViewModelCount; i++)
-            {
-                ViewModel indexedVM = file.GetViewModelAtIndex(i);
-            }*/
-
-            // Get reference to the default view model for an artboard
-            ViewModel defaultVM = timerWidget.Artboard.DefaultViewModel;
-            //ViewModel defaultVM = timerWidget.File.
-
-            ViewModelInstance defaultVMI = defaultVM.CreateDefaultInstance();
-
-            timerWidget.StateMachine.BindViewModelInstance(defaultVMI);
-
-            // A list of properties
-            var properties = defaultVM.Properties;
-            foreach (var prop in properties)
-            {
-                Debug.Log($"Property: {prop.Name}, Type: {prop.Type}");
-            }
-
-            foreach(SMIInput input in timerWidget.StateMachine.Inputs())
-            {
-                Debug.Log(input.Name);
-                Debug.Log(input.IsNumber);
-            }
+            _progress = viewModelInstance.GetNumberProperty("O2 Value");
         }
     }
 }
