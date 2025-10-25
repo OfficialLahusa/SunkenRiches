@@ -1448,6 +1448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81430be34dc1dfd44951f4b716ba283f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
+  timerWidget: {fileID: 1098500076}
   remainingSeconds: 180
 --- !u!1 &1044669092 stripped
 GameObject:
@@ -1477,7 +1478,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1618,7 +1619,7 @@ MonoBehaviour:
   m_hitTestBehavior: 0
   m_eventPoolingMode: 0
   m_speed: 1
-  m_dataBindingMode: 0
+  m_dataBindingMode: 2
   m_viewModelInstanceName: 
 --- !u!1001 &1182831415
 PrefabInstance:
