@@ -3,6 +3,7 @@ using Rive.Components;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class Timer : MonoBehaviour
         if (remainingSeconds < 0)
         {
             remainingSeconds = 0;
+
+            SceneManager.LoadScene("End", LoadSceneMode.Single);
         }
 
         int minutes = Mathf.FloorToInt(remainingSeconds / 60f);
