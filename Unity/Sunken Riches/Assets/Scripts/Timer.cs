@@ -29,6 +29,6 @@ public class Timer : MonoBehaviour
         int minutes = Mathf.FloorToInt(remainingSeconds / 60f);
         int seconds = Mathf.FloorToInt(Mathf.Repeat(remainingSeconds, 60f));
 
-        text.SetText($"{minutes:D2}:{seconds:D2}");
+        text.SetText($"{minutes}:{seconds:D2}");
     }
 }
