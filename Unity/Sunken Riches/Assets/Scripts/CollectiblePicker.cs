@@ -4,6 +4,8 @@ public class CollectiblePicker : MonoBehaviour
 {
     Camera cam;
 
+    public double maxDistance = 5;
+
     public int trashCollected = 0;
     public int commonCollected = 0;
     public int rareCollected = 0;
@@ -25,10 +27,14 @@ public class CollectiblePicker : MonoBehaviour
             {
                 Debug.Log("No hit");
             }
+            else if (hitInfo.distance > maxDistance)
+            {
+                Debug.Log("Object out of reach");
+            }
             else
             {
                 GameObject hitObj = hitInfo.collider.gameObject;
-                bool isCollectible = true; 
+                bool isCollectible = true;
 
                 Debug.Log(hitObj.name);
 
