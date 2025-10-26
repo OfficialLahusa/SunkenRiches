@@ -6,10 +6,6 @@ public class CollectiblePicker : MonoBehaviour
 
     public double maxDistance = 5;
 
-    public int trashCollected = 0;
-    public int commonCollected = 0;
-    public int rareCollected = 0;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,15 +36,15 @@ public class CollectiblePicker : MonoBehaviour
 
                 if (hitObj.tag.Contains("CollectibleRare"))
                 {
-                    rareCollected++;
+                    ScoreTracker.Instance.rareCollected++;
                 }
                 else if (hitObj.tag.Contains("CollectibleCommon"))
                 {
-                    commonCollected++;
+                    ScoreTracker.Instance.commonCollected++;
                 }
                 else if (hitObj.tag.Contains("CollectibleTrash"))
                 {
-                    trashCollected++;
+                    ScoreTracker.Instance.trashCollected++;
                 }
                 else
                 {
