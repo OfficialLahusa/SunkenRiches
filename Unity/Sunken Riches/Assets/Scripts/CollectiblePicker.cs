@@ -36,15 +36,15 @@ public class CollectiblePicker : MonoBehaviour
 
                 if (hitObj.tag.Contains("CollectibleRare"))
                 {
-                    CollectibleTracker.Instance.rareCollected++;
+                    ScoreTracker.Instance.rareCollected++;
                 }
                 else if (hitObj.tag.Contains("CollectibleCommon"))
                 {
-                    CollectibleTracker.Instance.commonCollected++;
+                    ScoreTracker.Instance.commonCollected++;
                 }
                 else if (hitObj.tag.Contains("CollectibleTrash"))
                 {
-                    CollectibleTracker.Instance.trashCollected++;
+                    ScoreTracker.Instance.trashCollected++;
                 }
                 else
                 {

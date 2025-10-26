@@ -1,23 +1,23 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CollectibleTracker
+public class ScoreTracker
 {
-    private static CollectibleTracker instance = null;
+    private static ScoreTracker instance = null;
 
-    public static CollectibleTracker Instance
+    public static ScoreTracker Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = new CollectibleTracker();
+                instance = new ScoreTracker();
             }
             return instance;
         }
     }
 
-    private CollectibleTracker()
+    private ScoreTracker()
     {
 
     }
