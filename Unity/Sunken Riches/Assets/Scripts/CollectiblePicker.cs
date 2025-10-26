@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CollectiblePicker : MonoBehaviour
 {
+    public AudioSource collectSound;
+    public AudioSource collectRareSound;
+
     Camera cam;
 
     public double maxDistance = 5;
@@ -53,6 +56,15 @@ public class CollectiblePicker : MonoBehaviour
 
                 if (isCollectible)
                 {
+                    if (hitObj.tag.Contains("CollectibleRare"))
+                    {
+                        collectRareSound.Play();
+                    }
+                    else
+                    {
+                        collectSound.Play();
+                    }
+
                     Destroy(hitObj);
                 }
             }
