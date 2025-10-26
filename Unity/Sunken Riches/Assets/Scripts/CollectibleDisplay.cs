@@ -15,6 +15,6 @@ public class CollectibleDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.SetText($"Trash: {picker.trashCollected}\nCommon: {picker.commonCollected}\nRare: {picker.rareCollected}");
+        text.SetText($"Trash: {CollectibleTracker.Instance.trashCollected}\nCommon: {CollectibleTracker.Instance.commonCollected}\nRare: {CollectibleTracker.Instance.rareCollected}");
     }
 }
