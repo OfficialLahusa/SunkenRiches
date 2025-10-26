@@ -8,10 +8,7 @@ public class ScoreDisplay : MonoBehaviour
     void Start()
     {
         text = GetComponent<TMP_Text>();
-    }
 
-    void OnAwake()
-    {
         int totalScore = 30 * ScoreTracker.Instance.trashCollected + 100 * ScoreTracker.Instance.commonCollected + 250 * ScoreTracker.Instance.rareCollected;
 
         text.SetText($"Trash collected: {ScoreTracker.Instance.trashCollected}\n"
