@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1469176029490014033}
+  - component: {fileID: 273685347948693009}
   m_Layer: 0
   m_Name: boba
   m_TagString: CollectibleTrash
@@ -32,6 +33,29 @@ Transform:
   - {fileID: 7387665007762529856}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &273685347948693009
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889100648878376775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10.8
+  m_Height: 34.56
+  m_Direction: 1
+  m_Center: {x: 0, y: 14.8, z: 0}
 --- !u!1 &3975295003727715619
 GameObject:
   m_ObjectHideFlags: 0
