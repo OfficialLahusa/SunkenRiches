@@ -3,8 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    AudioSource source;
+
     public void Start()
     {
+        source = GetComponent<AudioSource>();
+
         // Unlock cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -12,11 +16,13 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Main", LoadSceneMode.Single);
+        //source.Play();
+        SceneManager.LoadSceneAsync("Main", LoadSceneMode.Single);
     }
 
     public void Quit()
     {
+        //source.Play();
         Application.Quit();
     }
 }
