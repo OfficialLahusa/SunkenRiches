@@ -3,18 +3,21 @@ using UnityEngine;
 
 public class CollectibleDisplay : MonoBehaviour
 {
-    public CollectiblePicker picker;
-    TMP_Text text;
+    public TMP_Text trashText;
+    public TMP_Text commonText;
+    public TMP_Text rareText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        text = GetComponent<TMP_Text>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.SetText($"Trash: {ScoreTracker.Instance.trashCollected}\nCommon: {ScoreTracker.Instance.commonCollected}\nRare: {ScoreTracker.Instance.rareCollected}");
+        trashText.SetText(ScoreTracker.Instance.trashCollected.ToString());
+        commonText.SetText(ScoreTracker.Instance.commonCollected.ToString());
+        rareText.SetText(ScoreTracker.Instance.rareCollected.ToString());
     }
 }
