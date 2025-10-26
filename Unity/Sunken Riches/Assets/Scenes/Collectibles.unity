@@ -753,7 +753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584416566}
   m_Layer: 0
-  m_Name: f
+  m_Name: Collectibles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
